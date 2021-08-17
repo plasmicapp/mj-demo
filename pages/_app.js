@@ -1,12 +1,9 @@
-import '../styles/globals.css'
-import { PlasmicRootProvider } from "@plasmicapp/loader"
+/** @format */
+
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <PlasmicRootProvider>
-      <Component {...pageProps} />
-    </PlasmicRootProvider>
-  )
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;
