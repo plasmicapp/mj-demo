@@ -11,8 +11,10 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Error from "next/error";
 import { PLASMIC } from "../plasmic-init";
 import Iframe from "../components/Iframe";
+import { Reveal } from "../components/Reveal";
 
 PLASMIC.registerComponent(Iframe, "Iframe");
+PLASMIC.registerComponent(Reveal, "Reveal");
 
 /**
  * Use fetchPages() to fetch list of pages that have been created in Plasmic
