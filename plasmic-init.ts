@@ -4,6 +4,12 @@ import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
 import Iframe from "./components/Iframe";
 import { ParallaxWrapper } from "./components/ParallaxWrapper";
 import { Reveal } from "./components/Reveal";
+import {
+  ProductCollection,
+  ProductImage,
+  ProductPrice,
+  ProductTitle,
+} from "./components/ItemGallery";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -65,4 +71,45 @@ PLASMIC.registerComponent(Reveal, {
     fraction: "number",
     triggerOnce: "boolean",
   },
+});
+
+PLASMIC.registerComponent(ProductCollection, {
+  name: "ProductCollection",
+  displayName: "Product Collection",
+  props: {
+    collectionHandle: {
+      type: "string",
+    },
+    scroller: "boolean",
+    count: "number",
+    children: "slot",
+    columns: {
+      type: "number",
+      defaultValue: 4,
+    },
+    columnGap: {
+      type: "number",
+      defaultValue: 16,
+    },
+    rowGap: {
+      type: "number",
+      defaultValue: 16,
+    },
+  },
+  importPath: "./ProductComponents",
+});
+
+PLASMIC.registerComponent(ProductTitle, {
+  name: "ProductTitle",
+  props: {},
+});
+
+PLASMIC.registerComponent(ProductImage, {
+  name: "ProductImage",
+  props: {},
+});
+
+PLASMIC.registerComponent(ProductPrice, {
+  name: "ProductPrice",
+  props: {},
 });
