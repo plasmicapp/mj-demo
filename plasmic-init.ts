@@ -106,7 +106,9 @@ PLASMIC.registerComponent(ProductTitle, {
 
 PLASMIC.registerComponent(ProductImage, {
   name: "ProductImage",
-  props: {},
+  props: {
+    imageNum: "number",
+  },
 });
 
 PLASMIC.registerComponent(ProductPrice, {

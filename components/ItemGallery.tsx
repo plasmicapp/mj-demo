@@ -352,10 +352,16 @@ function useProduct() {
   return useContext(ProductBoxContext);
 }
 
-export function ProductImage({ className }: { className?: string }) {
+export function ProductImage({
+  imageNum = 0,
+  className,
+}: {
+  imageNum?: number;
+  className?: string;
+}) {
   const product = useProduct();
   if (!product) return null;
-  const image = product.images.edges[0].node;
+  const image = product.images.edges[imageNum].node;
   return (
     <img
       alt={product.title}
