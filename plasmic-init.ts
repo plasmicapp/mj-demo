@@ -5,6 +5,7 @@ import Iframe from "./components/Iframe";
 import { ParallaxWrapper } from "./components/ParallaxWrapper";
 import { Reveal } from "./components/Reveal";
 import {
+  GridItem,
   ProductCollection,
   ProductImage,
   ProductPrice,
@@ -95,8 +96,17 @@ PLASMIC.registerComponent(ProductCollection, {
       type: "number",
       defaultValue: 16,
     },
+    staticContent: "slot",
   },
-  importPath: "./ProductComponents",
+});
+
+PLASMIC.registerComponent(GridItem, {
+  name: "GridItem",
+  props: {
+    rows: "string",
+    cols: "string",
+    children: "slot",
+  },
 });
 
 PLASMIC.registerComponent(ProductTitle, {

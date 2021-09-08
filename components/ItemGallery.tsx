@@ -133,6 +133,30 @@ query Collection($handle:String!){
 ${productFragment}
 `;
 
+interface GridItem {
+  rows?: string;
+  cols?: string;
+  className?: string;
+  children?: ReactNode;
+}
+
+export function GridItem({ rows, cols, className, children }: GridItem) {
+  let [rowStart, rowEnd] = rows.split("-").map((x) => parseInt(x));
+  let [colStart, colEnd] = cols.split("-").map((x) => parseInt(x));
+  return (
+    <div
+      className={className}
+      style={{
+        gridArea: `${rowStart} / ${colStart} / ${(rowEnd ?? rowStart) + 1} / ${
+          (colEnd ?? colStart) + 1
+        }`,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 interface ItemGalleryProps {
   scroller?: boolean;
   children?: ReactNode;
@@ -141,6 +165,7 @@ interface ItemGalleryProps {
   columns?: number;
   columnGap?: number;
   rowGap?: number;
+  staticContent?: ReactNode;
 }
 
 export function ItemGallery({
@@ -150,6 +175,7 @@ export function ItemGallery({
   columns = 1,
   columnGap = 0,
   rowGap = 0,
+  staticContent,
 }: ItemGalleryProps) {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [left, setLeft] = useState(0);
@@ -198,6 +224,7 @@ export function ItemGallery({
       }}
     >
       {children}
+      {staticContent}
     </div>
   );
 }
