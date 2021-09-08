@@ -140,7 +140,12 @@ interface GridItem {
   children?: ReactNode;
 }
 
-export function GridItem({ rows, cols, className, children }: GridItem) {
+export function GridItem({
+  rows = "1",
+  cols = "1",
+  className,
+  children,
+}: GridItem) {
   let [rowStart, rowEnd] = rows.split("-").map((x) => parseInt(x));
   let [colStart, colEnd] = cols.split("-").map((x) => parseInt(x));
   return (

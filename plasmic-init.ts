@@ -103,8 +103,14 @@ PLASMIC.registerComponent(ProductCollection, {
 PLASMIC.registerComponent(GridItem, {
   name: "GridItem",
   props: {
-    rows: "string",
-    cols: "string",
+    rows: {
+      type: "string",
+      defaultValue: "1-2"
+    },
+    cols: {
+      type: "string",
+      defaultValue: "1-2"
+    },
     children: "slot",
   },
 });
